@@ -3,11 +3,18 @@ var ReactFire = require('reactfire');
 var Firebase = require('firebase');
 
 var Header = require('./header');
+var List = require('./list');
 
 var rootUrl = 'https://incandescent-heat-9204.firebaseio.com/';
 
 var App = React.createClass({
   mixins: [ReactFire],
+
+  getInitialState: function() {
+    return {
+      items: {}
+    };
+  },
 
   componentWillMount: function() {
     this.bindAsObject(new Firebase(rootUrl + 'items/'), 'items');
@@ -20,6 +27,7 @@ var App = React.createClass({
           Todo List
         </h2>
         <Header itemsStore={this.firebaseRefs.items} />
+        <List items={this.state.items} />
       </div>
     </div>
   }
