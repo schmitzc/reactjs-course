@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script>
+  </head>
+
+  <body>
+    <div id="content"></div>
+
+    <script type="text/jsx">
+      Badge = React.createClass({
+        render: function() {
+          return <button className="btn btn-primary" type="button">
+            {this.props.title} <span className="badge">{this.props.number}</span>
+          </button>
+        }
+      });
+
+      var options = {
+        title: 'Sent',
+        number: 12
+      };
+
+      var element = React.createElement(Badge, options);
+
+      React.render(element, document.getElementById('content'));
+    </script>
+  </body>
+</html>
