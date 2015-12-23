@@ -1,4 +1,5 @@
 var React = require('react');
+var ListItem = require('./list-item');
 
 module.exports = React.createClass({
   render: function() {
@@ -14,14 +15,18 @@ module.exports = React.createClass({
       var items = [];
 
       for (var key in this.props.items) {
+        var item = this.props.items[key];
+        item.id = key;
+
         items.push(
-          <li>
-            {this.props.items[key].text}
-          </li>
+          <ListItem
+            item={item}
+            key={key}
+          />
         );
       }
 
-      return <ul>{items}</ul>
+      return <div>{items}</div>
     }
   }
 });
