@@ -18,11 +18,11 @@ var App = React.createClass({
   },
 
   componentWillMount: function() {
-    var firebase = new Firebase(rootUrl + 'items/');
+    this.firebase = new Firebase(rootUrl + 'items/');
 
-    this.bindAsObject(firebase, 'items');
+    this.bindAsObject(this.firebase, 'items');
 
-    firebase.on('value', this.handleDataLoaded);
+    this.firebase.on('value', this.handleDataLoaded);
   },
 
   render: function() {
@@ -35,13 +35,36 @@ var App = React.createClass({
         <hr />
         <div className={'content' + (this.state.loaded ? ' loaded' : '')}>
           <List items={this.state.items} />
+          {this.deleteButtion()}
         </div>
       </div>
     </div>
   },
 
+  deleteButtion: function() {
+    if (!this.state.loaded) return null;
+
+    return <div className='text-center clear-complete'>
+      <hr />
+      <button type='button'
+        className='btn btn-default'
+        type='button'
+        onClick={this.onDeleteDoneClick}>
+        Clear Completed
+      </button>
+    </div>
+  },
+
   handleDataLoaded: function() {
     this.setState({loaded: true});
+  },
+
+  onDeleteDoneClick: function() {
+    for (var key in this.state.items) {
+      if (this.state.items[key].done === true) {
+        this.firebase.child(key).remove();
+      }
+    }
   }
 });
 
