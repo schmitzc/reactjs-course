@@ -13,8 +13,7 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      image: null,
-      comments: []
+      image: null
     };
   },
 
@@ -57,13 +56,15 @@ module.exports = React.createClass({
   },
 
   renderComments: function() {
+    if (!this.state.comments) return null;
+
     return <CommentBox comments={this.state.comments} />
   },
 
   onChange: function(event, image) {
     this.setState({
       image: ImageStore.find(this.props.params.id),
-      comments: CommentStore.comment
+      comments: CommentStore.comments
     });
   }
 });
