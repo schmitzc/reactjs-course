@@ -1,8 +1,24 @@
 .image-preview {
   display: inline-block;
+  position: relative;
 
-  img {
+  img, video {
     height: 200px;
     width: 200px;
+  }
+
+  video {
+    background-color: black;
+    vertical-align: middle;
+  }
+
+  .glyphicon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    opacity: 0.5;
+    color: white;
   }
 }
