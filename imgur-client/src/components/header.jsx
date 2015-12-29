@@ -21,7 +21,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return <nav className='navbar navbar-default'>
+    return <nav className='header navbar navbar-default'>
       <div className='container-fluid'>
         <div className='navbar-header'>
           <Link to='/' className='navbar-brand'>
@@ -40,7 +40,7 @@ module.exports = React.createClass({
   renderTopics: function() {
     return this.state.topics.slice(0, 4).map(function(topic) {
       return <li key={topic.id}>
-        <Link to={'topics/' + topic.id}>
+        <Link to={'topics/' + topic.id} activeClassName='active'>
           {topic.name}
         </Link>
       </li>
