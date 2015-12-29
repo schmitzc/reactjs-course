@@ -36,9 +36,7 @@ module.exports = React.createClass({
         <div className='panel-body'>
           {this.renderImage()}
         </div>
-        <div className='panel-footer'>
-          <h5>{this.state.image.description}</h5>
-        </div>
+        {this.renderDescription()}
       </div>
       <h3>Comments</h3>
       {this.renderComments()}
@@ -53,6 +51,14 @@ module.exports = React.createClass({
     } else {
       return <img src={this.state.image.link} alt='' />
     }
+  },
+
+  renderDescription: function() {
+    if (!this.state.image.description) return null;
+
+    return <div className='panel-footer'>
+      <h5>{this.state.image.description}</h5>
+    </div>
   },
 
   renderComments: function() {
