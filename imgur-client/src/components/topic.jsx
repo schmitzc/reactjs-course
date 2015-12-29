@@ -18,6 +18,10 @@ module.exports = React.createClass({
     Actions.getImages(this.props.params.id);
   },
 
+  componentWillReceiveProps: function(nextProps) {
+    Actions.getImages(nextProps.params.id);
+  },
+
   render: function() {
     return <div>
       I am a topic #{this.props.params.id}!
