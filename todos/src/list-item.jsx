@@ -20,6 +20,7 @@ module.exports = React.createClass({
     return <div className='input-group'>
       <span className='input-group-addon'>
         <input type='checkbox'
+          className='done-checkbox'
           checked={this.state.done}
           onChange={this.handleDoneChange}
           />
@@ -33,7 +34,7 @@ module.exports = React.createClass({
       <span className='input-group-btn'>
         {this.changesButtons()}
         <button type='button'
-          className='btn btn-default'
+          className='delete-button btn btn-default'
           type='button'
           onClick={this.handleDeleteClick}>
           Delete
@@ -47,13 +48,13 @@ module.exports = React.createClass({
 
     return [
       <button type='button'
-        className='btn btn-default'
+        className='save-button btn btn-default'
         key='save'
         onClick={this.handleSaveClick}>
         Save
       </button>,
       <button type='button'
-        className='btn btn-default'
+        className='undo-button btn btn-default'
         key='undo'
         onClick={this.handleUndoClick}>
         Undo
