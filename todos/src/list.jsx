@@ -3,12 +3,6 @@ var ListItem = require('./list-item');
 
 module.exports = React.createClass({
   render: function() {
-    return <div>
-      {this.renderList()}
-    </div>
-  },
-
-  renderList: function() {
     if (!this.props.items) {
       return <h4>Add a task to get started.</h4>
     } else {

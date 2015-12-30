@@ -1,5 +1,5 @@
 var React = require('react')
-var TestUtils = require('react/lib/ReactTestUtils')
+var TestUtils = require('react/lib/ReactTestUtils');
 var Header = require('../src/header');
 
 describe('Header', function() {
