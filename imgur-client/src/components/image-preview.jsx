@@ -25,7 +25,7 @@ module.exports = React.createClass({
   },
 
   image: function() {
-    var link = 'http://i.imgur.com/' + this.props.id + 'h.jpg';
+    var link = 'http://i.imgur.com/' + this.props.id + 'b.jpg';
 
     return <img src={link} />
   },
