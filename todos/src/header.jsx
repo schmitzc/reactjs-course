@@ -28,7 +28,7 @@ module.exports = React.createClass({
   },
 
   handleInputChange: function(event) {
-     this.setState({text: event.target.value});
+    this.setState({text: event.target.value});
   },
 
   handleClick: function() {
